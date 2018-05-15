@@ -28,21 +28,16 @@ if(command === "do-what-it-says"){
         
        command = commandArray[0];
        searchThis = commandArray[1];
-       console.log(command);
-       console.log(searchThis);
         justDoIt();
 
     });
- 
-}
-    
-if (command === "my-tweets"){
+}else if (command === "my-tweets"){
         showTweets();
-    }else if(command === "spotify-this-song"){
+}else if(command === "spotify-this-song"){
         loveThatSong();
-    }else if(command === "movie-this"){
+}else if(command === "movie-this"){
         movieInfo();
-    };
+};
 
 
 ///////// functions for user commands ///////////
@@ -57,7 +52,7 @@ function showTweets(){
                 for (var i = 0; i<20; i++){
                 console.log("<3 Grace tweeted '" + tweets[i].text + "' on " + tweets[i].created_at);  // When it was tweeted
                 console.log("_____________________________________________________________")
-            }
+                }
             }else{
                 console.log("_____________________________________________________________")
                 for (var i = 0; i<tweets.length; i++){
@@ -65,8 +60,8 @@ function showTweets(){
                  }
                 console.log("_____________________________________________________________")
 
-            }
-        }
+            };
+        };
     });
 };
 
@@ -77,8 +72,6 @@ function loveThatSong(){
         searchThis = "The Sign";
 
     }else{
-        
-    
 
     spotify.search({ type: 'track', query: searchThis }).then(function(response) {
 
@@ -92,10 +85,9 @@ function loveThatSong(){
     console.log("_____________________________________________________________")  
 
 
-  })
-}
-}
-
+  });
+};
+};
 
 function movieInfo(){
     //display movie information from OMDB
@@ -103,9 +95,6 @@ function movieInfo(){
         //If no song is provided then your program will default to "Mr.Nobody".
         searchThis = "Mr. Nobody";
     }else{
-        
-    
-    
         var queryURL= "http://www.omdbapi.com/?t=" + searchThis + "&y=&plot=short&apikey=trilogy";
         console.log(queryURL);
         request(queryURL, function(error, response, body){
@@ -130,7 +119,6 @@ function movieInfo(){
     }
 }
 
-
 function justDoIt(searchThis){
     searchThis = searchThis;
    
@@ -143,12 +131,8 @@ function justDoIt(searchThis){
     }else if(command === "do-what-it-says"){
         console.log("I only take orders from the boss.")
     }
-  
-
 
 }
-
-
 
 function searchTerm(){
     for (var i=3; i < process.argv.length; i++ ){
